@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+ <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="progress.js"></script> 
+	<script src="circle-progress.js"></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+  
+  
+      <header>
+          <div class="container">
+              <div class="row" id="userid">
+                  <div class="col-md-12 logo">
+
+					 <input type="hidden" id="user_id" > 	
+					 <input type="hidden" id="eid" > 	
+
+
+				  <a href="index.html"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+  
+
+	<section class="main_container">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs nav-pills nav-justified ">
+                            <li><a role="tab" id="firstresult" ><i class="fa fa-question-circle"></i> SORU SOR</a></li>
+                          <li class="active"><a id="secondresult"><i class="fa fa-file"></i> TANITIM</a></a></li>
+                          <li><a id="thirdresult"><i class="fa fa-flag"></i> AKSiYON</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="home">
+                            
+                                      <div class="col-md-10 col-md-offset-1 search_box result_title">
+                                           <h1> <img src="img/badge.png" /> Result List of Second Tab </h1>
+                                      </div><!-- /input-group -->
+                          
+                              
+                              <div class="col-md-10 col-md-offset-1 tab-one-heading big_font">
+                                  <div id="content-rds5" class="content">
+				
+								  </div>
+                              </div>
+                              
+                              <div class="col-md-12 question-container padding_tb_bt2 " style="height:170px;">
+                                    <div class="row">
+									
+									<div class="col-md-6 score_list" >
+	
+										 <ul class="footer-list time-list-cont ">
+										 <li class="green-box-list" >Users Score</li>
+										 <li class="time" id="userscore" style="position:relative;left:-5px;">00:00</li>
+										 </ul>
+										 
+										 <ul class="footer-list time-list-cont">
+										 <li class="green-box-list">Max. Score </li>
+										 <li class="time" id="maxscore">00.00</li>
+										 </ul>
+										 
+									<div class="col-md-12 text-center score_text">
+									<div id="circle" style="position:relative;z-index:1;left:450px;top:-130px;width:130px;height:130px;" >
+									</div>
+									<div id="scorediv" style="position:relative;width:100px;height:100px;left:465px;top:-230px;z-index:1;font-size:35pt;"> 
+									<li style='position:relative;left:100px;top:-10px;'>Score in %</li>									
+                                    	                                        
+									</div>
+									 </div>
+									 	 
+									</div>
+                                     
+                                     
+                                    </div>
+                              </div>
+                              
+							  <div class="row">
+                                  <div class="col-md-12 margin-top-cont padding_tb_bt2 bottom_btn">
+                                      <div class="col-md-6 text-left">
+                                         <a  class="btn btn-white" id="pretab">Previous Tab</a>
+                                      </div>
+                                      <div class="col-md-6 text-right">
+                                          <a class="btn btn-white" id="nexttab">Next Tab</a>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+				  </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- Module Analysis </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+  
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	
+	<script>
+	$(document).ready(function()
+	{
+
+	var x=location.search;
+	x=unescape(x);
+	x=x.substr(1);
+	var n = x.search("&"); 
+	
+	
+	y=x.substr(0,n);
+	var m = y.search("=");
+	userid=y.substr(m+1);
+	
+	$("#user_id").val(userid);
+
+	if (userid=="")
+	{
+	location.href="index.html";
+	}
+	
+	z=x.substr(n+1);
+	eid= z.substr(4);
+	$("#eid").val(eid);
+
+	
+	$("#userid").append("<h4 style='position:relative;float:right;color:#3acfb8;top:10px;padding-right:100px;'><a href='index.html' style='text-decoration:none;'>Logout</a></h4><h4 style='position:relative;top:10px;float:right;color:#3acfb8;padding-right:50px;'>User Id : "+userid+"</h4>");
+
+	$.getJSON("http://newsoftwares.rf.gd/webmodule/jsondata/result.json", function(data) 
+	{
+	
+		var a=0;
+		var b=1;
+		var c=0;
+		
+		$("#content-rds5").html("<ul class='all-question-list'>");
+
+		for (i=0; i<= data.resultstab2.length; i++)
+		{		
+		
+		$("#content-rds5").append("<li style='list-style-type:none;font-weight:400;font-size:14px;letter-spacing:1px;color:#fff;padding: 10px 0px;padding-left:50px;border-bottom:1px solid #fff;position:relative;'><span class='box-question' style='background:#fff;color:#3acfb8;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top:6px;position:absolute;width:40px;text-align:center;'>Q"+(i+1)+"</span>"+data.resultstab2[i].question_asked+"<ul><li> - Correct Answer : <span>"+ data.resultstab2[i].correct_answer +" </span></li><li> - Your Answer : <span>"+data.resultstab2[i].question_answered +"</span></li><li> - Result : <span>"+data.resultstab2[i].questionresult +"</span></li></ul></li>");
+				b = 2 * data.resultstab2.length;
+				a = a + parseInt( data.resultstab2[i].score );
+	
+		$.circleProgress.defaults.value =(a/b).toFixed(2);
+		
+		$("#circle").circleProgress({
+			size: 130,
+			thickness :20,
+			fill: {
+            gradient: ["#1BBC9B", "#1BBC9B"]
+        }
+		});
+		
+				$("#scorediv").html(a*100/b +"%");
+				$("#userscore").html(a.toFixed(2));
+				$("#maxscore").html(b.toFixed(2));
+		
+		}
+		$("#content-rds5").append("</ul>");
+	});
+	
+
+	$("#firstresult").click(function()
+	{
+	location.href="tab_result1.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+	
+	$("#secondresult").click(function()
+	{
+	location.href="tab_result2.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+	
+	$("#thirdresult").click(function()
+	{
+	location.href="tab_result3.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+
+	$("#nexttab").click(function()
+	{
+	location.href="tab_result3.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+	
+	$("#pretab").click(function()
+	{
+	location.href="tab_result1.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+
+
+	$("#firstresult").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+	$("#secondresult").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+	$("#thirdresult").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	});	
+	</script>
+	
+	<script>
+		(function($){
+			$(window).load(function(){
+				
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+				$.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+				
+                                $("#content-rds5").mCustomScrollbar({theme:"rounded-dots"});
+                                $("#content-rds6").mCustomScrollbar({theme:"rounded-dots"});
+				
+				
+				
+				$(".all-themes-switch a").click(function(e){
+					e.preventDefault();
+					var $this=$(this),
+						rel=$this.attr("rel"),
+						el=$(".content");
+					switch(rel){
+						case "toggle-content":
+							el.toggleClass("expanded-content");
+							break;
+					}
+				});
+				
+			});
+		})(jQuery);
+	</script>
+    
+    <script>
+        $('.header').addClass('animated fadeInDown');
+        
+    
+        jQuery("#back_left").click(function() {
+                    $("#content-rds").mCustomScrollbar("scrollTo","top");
+                });
+                
+        jQuery("#back_right").click(function() {
+            $("#content-rds2").mCustomScrollbar("scrollTo","top");
+        });
+    
+	</script>
+  
+  </body>
+</html>

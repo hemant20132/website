@@ -1,0 +1,58 @@
+<html>
+<head>
+
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  
+<body>
+
+<script>
+
+$(document).ready(function()
+{
+
+$("#userid").append("<h4 style='position:relative;float:right;color:#3acfb8;top:10px;padding-right:100px;'><a href='index.html' style='text-decoration:none;'>Logout</a></h4><h4 style='position:relative;top:10px;float:right;color:#3acfb8;padding-right:50px;'>User Id : "+userid+"</h4>");
+$("#questiondiv").html("");
+
+$("#SORbutton").click(function()
+{
+	
+	if ( $("#questionbox").val()=="" )
+	{
+	$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'></span>Type a question in above box ....</p></li></ul>");
+	return false;
+	}
+	
+	$.getJSON("http://newsoftwares.esy.es/website/jsondata/test.json", function(data) 
+	{
+		for (i=0; i <= data.chatquestions.length; i++)
+		{
+			if ( data.chatquestions[i].question == $("#questionbox").val() )
+			{
+			$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'>Q:</span>"+data.chatquestions[i].question+"</p></li><li><p><span class='bold-cont'>A:</span>"+data.chatquestions[i].answer+"</p></li></ul>");
+			$("#incorrectbutton").show();
+			return false;
+			}
+		}
+	});
+});
+
+$("#incorrectbutton").click (function()
+{
+	selque=$("#questionbox").val();
+	
+	$.getJSON("http://newsoftwares.esy.es/website/jsondata/test.json", function(data) 
+	{
+		alert(data.chatquestions[0].alternative[0]);
+		retunr false;
+	});
+});
+
+});
+
+</script>
+	
+</body>
+
+</html>

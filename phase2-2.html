@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Rapmaze</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href="style.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+  
+  
+<div id="pageone">
+
+<div id="header">
+          <div class="container">
+              <div class="row" id="userid" >
+                  <div class="col-md-12 logo">
+							<input type="hidden" id="user_id" > 	
+							<input type="hidden" id="eid" > 	
+						
+						<a href="index.html"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+</div>
+	  
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs nav-pills nav-justified ">
+                          <li><a href="#" role="tab" id="firsttab"><i class="fa fa-question-circle"></i> SORU SOR</a></li>
+                          <li><a href="#" id="secondtab"><i class="fa fa-file"></i> TANITIM</a></a></li>
+                          <li class="active" id="thirdtab"><a href="#"><i class="fa fa-flag"></i> AKSiYON</a></li>
+
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                              
+                                  
+
+                              <div class="row">
+                                  <div class="col-md-10 col-md-offset-1 margin_tp_bt">
+                                   
+                                       <div id="content-rds4" class="content" >
+                                     
+                                     
+                                
+                                       </div>
+                                  </div>
+
+
+                              </div>  
+
+                              <div class="col-md-12 white-padding ">
+                                  <div class="">
+
+
+                                  </div>
+                              </div>  
+
+                              <div class="row">
+                                  <div class="col-md-12 margin-top-cont bottom_btn">
+                                      <div class="col-md-6 ">
+                                          <ul class="footer-list">
+                                              <li class="time-name">Zamanlayıcı </li>
+                                              <li class="time" id="timer">00:00</li>
+                                          </ul>
+                                      </div>
+                                      <div class="col-md-6 text-right">
+                                          <a id="showresult" class="btn btn-white">Sonlandir</a>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- Repmaze Analysis </p>
+                  </div>
+              </div>
+          </div>
+     
+	 <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+	<!-- custom scrollbar plugin -->
+	<script>
+	
+	$(document).ready(function()
+	{	
+	
+	var qclick=[];
+	
+	$("#pagetwo").hide();
+	
+	var x=location.search;
+	x=unescape(x);
+	x=x.substr(1);
+	var n = x.search("&"); 
+	
+	y=x.substr(0,n);
+	var m = y.search("=");
+	userid=y.substr(m+1);
+
+	if (userid=="")
+	{
+	location.href="index.html";
+	}
+	
+	$("#user_id").val(userid);
+
+	str="userid="+userid;	
+	len=str.length;
+	
+	str1=x.slice(len+1);
+	
+	var q = str1.search("&");
+	z=str1.substr(0,q);
+	var r = z.search("=");
+	eid=z.substr(r+1);
+
+	$("#eid").val(eid);
+	
+	if (eid.substr(0,2)=="ex")
+		{
+		str2="eid="+eid;
+		len1= str2.length
+		str3= str1.slice(len1+1);
+		var s = str3.search("=");
+		time=str3.substr(s+1);
+		var t = time.search(":");
+		var min=parseInt(time.substr(0,t));
+		var sec=parseInt(time.substr(t+1));
+		
+			
+			
+			var timer=setInterval(function ()
+			{
+			
+			if (sec<10) 
+			{
+			$("#timer").html("0"+min+":0"+sec);
+			}
+
+			if (sec>=10) 
+			{
+			$("#timer").html("0"+min+":"+sec);
+			}
+
+			if ($("#timer").html()== "0100:00")
+			{
+			clearInterval(timer);
+			location.href="tab_result3.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+			}
+			sec=sec+1;
+			if (sec==59)
+			{
+			min=min+1;
+			sec=00;
+			}
+			}, 1000);
+
+		}
+	
+	$("#userid").append("<h4 style='position:relative;float:right;color:#3acfb8;top:10px;padding-right:100px;'><a href='index.html' style='text-decoration:none;'>Logout</a></h4><h4 style='position:relative;top:10px;float:right;color:#3acfb8;padding-right:50px;'>User Id : "+userid+"</h4>");
+
+	$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/question.json", function(data) 
+	{
+	$("#content-rds4").html("<ul class='all-question-list' style='margin-bottom:25px;padding-left:0px;'>");
+		for (i=0;i<=data.questions3.length;i++)
+			{
+				$("#content-rds4").append("<li style='list-style:none;font-weight:400;font-size:14px;letter-spacing:1px;color:#fff;padding:10px 0px;padding-left:50px;	border-bottom:1px solid #fff; position: relative;'><a href= '#pagetwo' style='text-decoration:none;font-weight:400;font-size:16px;letter-spacing:1px;color:#fff;'><span class='box-question' style='background:#fff;color:#3acfb8;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top:6px;position:absolute;width:40px;text-align:center;'>Q"+ (i+1) +"</span>"+ data.questions3[i].question + "<i class='fa fa-angle-right' style='float:right;'></i></a></li>");
+			}
+		$("#content-rds4").append("</ul>");
+	});
+	
+	
+	
+	
+	
+	
+	$("#content-rds4 li a").live("click", function()
+	{
+		que = $(this).text();
+		
+		
+		for (i=0;i<=qclick.length;i++)
+		{
+			if (qclick[i] ==que)
+			{
+				alert('question already answered!!!');
+				return false;
+			}
+		}
+
+		$(this).css("color","rgb(0,0,255)");
+		qclick.push(que);
+		
+			
+		$("#heading").html("<h1><i class='fa fa-question'></i>Question"+que.substr(1,1)+"</h1>");
+		$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/question.json", function(data) 
+		{
+
+			for (i=0;i<=data.questions3.length;i++)
+			{
+			if ( data.questions3[i].question == que.substr(2) )
+			{
+			$("#question").html("<h1>"+data.questions3[i].question + "<div class='col-md-8 col-md-offset-1 answer_choice'><ul class='all-question-list'><li><a><span class='box-question'>A</span>"+ data.questions3[i].ChoiceA  +"</a></li><li><a><span class='box-question'>B</span>"+data.questions3[i].ChoiceB+ "</a></li><li><a><span class='box-question'>C</span>" +data.questions3[i].ChoiceC+"</a></li><li><a><span class='box-question'>D</span>"+data.questions3[i].ChoiceD+"</a></li></ul></div></h1><h1 class='icon'><i class='fa fa-question-circle'></i></h1>");
+			}
+			}
+		});
+	
+		$(this).css("color","blue");
+		
+		$("#pagetwo").show(500);
+		var left1=((window.innerWidth-1100)/2);
+		
+		$("#pagetwo").animate({left:left1-34},1000);
+		
+		$("#pageone").find("#rowcontent").css("left")=$("#pagetwo").css("left");
+		$("#pageone").find("#rowcontent").css("width")=$("#pagetwo").css("width");
+	
+	});
+	
+	$("#pagetwo li a").live("mouseover", function()
+	{
+			$(this).css("cursor","pointer");
+	
+	});
+	
+	
+	
+	$("#pagetwo li a").live("click", function()
+	{
+		var optsel1 = $(this).text();
+		var optsel = optsel1.substr(1);
+		
+		$.post("jsondata/result.json",
+		{
+		question: que.substr(2),
+		answer : optsel,
+		action:"1"
+		});
+		
+		$("#pagetwo").animate({left:'1000px'});
+		$("#pagetwo").hide(500);
+	
+	});
+	
+	$("#showresult").click(function()
+	{
+	location.href="tab_result2.html?userid="+ $("#user_id").val() +"&eid="+ $("#eid").val();
+	});
+
+	$("#firsttab").click(function()
+	{
+	location.href="phase2.html?userid="+ $("#user_id").val() +"&eid="+ $("#eid").val() +"&time="+$("#timer").html();
+	});
+
+	$("#secondtab").click(function()
+	{
+    location.href="phase2-1.html?userid="+ $("#user_id").val() +"&eid="+ $("#eid").val() +"&time="+$("#timer").html();
+	});
+
+	$("#thirdtab").click(function()
+	{
+	location.href="phase2-2.html?userid="+ $("#user_id").val() +"&eid="+  $("#eid").val()  +"&time="+$("#timer").html();
+	});
+
+	});
+	</script>
+
+	<script>
+		(function($){
+			$(window).load(function(){
+
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+				$("#content-rds3").mCustomScrollbar({theme:"rounded-dots"});
+				
+			});
+		})(jQuery);
+	</script>
+    
+    <script>
+        $('.header').addClass('animated fadeInDown');
+    
+        jQuery("#back_left").click(function() {
+                    $("#content-rds").mCustomScrollbar("scrollTo","top");
+                });
+                
+        jQuery("#back_right").click(function() {
+            $("#content-rds2").mCustomScrollbar("scrollTo","top");
+        });
+
+        
+</script>
+
+</div>
+
+
+
+<div id="pagetwo" style="z-index:1;position:absolute;top:160px;left:1000px;" >
+
+      
+      
+	  <div class="container" style="height:60%">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!-- Nav tabs -->
+                    <div class="row">
+                          <div class="col-md-12 title_heading" id="heading" >
+						
+						
+						</div>
+                      </div>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                              <div class="row">
+                                  <div class="col-md-8 col-md-offset-2 large_question" id="question" style='height:417px;'>
+                                       
+                                  </div>
+							  </div>  
+
+                              <div class="col-md-12 white-padding ">
+                              
+							  </div>  
+
+                              <div class="row">
+                                  <div class="col-md-12 padding_tp" style='height:60px;'>
+                                  </div>
+                              </div>
+
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+           
+		   
+          </div>
+      
+ 
+</div>
+
+ </body>
+</html>

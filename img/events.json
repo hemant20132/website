@@ -1,0 +1,46 @@
+{
+    "events": [
+        {
+            "id": "ev1",
+            "name": "event1",
+            "image": "content_img.png",
+            "event_description": "This even is about winter Celebration !!!"
+        },
+        {
+            "id": "ev2",
+            "name": "event2",
+            "image": "content_img.png",
+            "event_description": "This even is about Summer Celebration !!!"
+        },
+        {
+            "id": "ev3",
+            "name": "event3",
+            "image": "content_img.png",
+            "event_description": "This even is about Christmas Celebration !!!"
+        }
+    ],
+	
+    "exams": 
+	[
+        {
+            "id": "ex1",
+            "name": "exam1",
+            "image": "link1",
+            "isStartable": "true"
+        },
+        {
+            "id": "ex2",
+            "name": "exam2",
+            "image": "link2",
+            "isStartable": "true"
+        },
+        {
+            "id": "ex3",
+            "name": "exam3",
+            "image": "link3",
+            "isStartable": "true"
+        }
+	]
+
+
+}

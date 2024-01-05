@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Rapmaze</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href="style.css" rel="stylesheet">
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  
+  
+  </head>
+
+  <body>
+      <header>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 logo">
+                      <a href="index.html"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <section class="main_container">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!-- Nav tabs -->
+                    <div class="row">
+                          <div class="col-md-12 title_heading" id="heading" >
+                          <h1><i class="fa fa-question"></i> Question 1</h1>
+                          </div>
+                      </div>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                              <div class="row">
+                                  <div class="col-md-8 col-md-offset-2 large_question" id="question">
+                                       
+                                      
+                                  </div>
+
+
+                              </div>  
+
+                              <div class="col-md-12 white-padding ">
+                              </div>  
+
+                              <div class="row">
+                                  <div class="col-md-12 padding_tp">
+                                  </div>
+                              </div>
+
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- Repmaze Analysis </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+  
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script>
+	$(document).ready(function()
+	{
+	var x=location.search;
+	x=unescape(x);
+	x=x.substr(10);
+	
+	$.getJSON("http://newsoftwares.esy.es/website/jsondata/question.json", function(data) 
+	{
+		for (i=0;i<=data.questions.length;i++)
+		{
+					if ( data.questions3[i].question ==x )
+					{
+						$("#heading").html("<h1><i class='fa fa-question'></i> "+  data.questions3[i].questionno +"</h1>");
+						$("#question").html("<h1>"+data.questions3[i].question + "<div class='col-md-8 col-md-offset-1 answer_choice'><ul class='all-question-list'><li><a href='#'><span class='box-question'>A</span>"+ data.questions3[i].ChoiceA  +"</a></li><li><a href='#'><span class='box-question'>B</span>"+data.questions3[i].ChoiceB+ "</a></li><li><a href='#'><span class='box-question'>C</span>" +data.questions3[i].ChoiceC+"</a></li><li><a href='#'><span class='box-question'>D</span>"+data.questions3[i].ChoiceD+"</a></li></ul></div></h1><h1 class='icon'><i class='fa fa-question-circle'></i></h1>");
+					}					
+		}
+	
+	});
+	
+	$("#question").click(function()
+	{
+		alert ($(this).text());
+	});
+	
+	
+	
+	});
+	</script>
+	<script>
+		(function($){
+			$(window).load(function(){
+				
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+				$.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+	                            $("#content-rds4").mCustomScrollbar({theme:"rounded-dots"});
+				
+				
+				
+				$(".all-themes-switch a").click(function(e){
+					e.preventDefault();
+					var $this=$(this),
+						rel=$this.attr("rel"),
+						el=$(".content");
+					switch(rel){
+						case "toggle-content":
+							el.toggleClass("expanded-content");
+							break;
+					}
+				});
+				
+			});
+		})(jQuery);
+	</script>
+
+  </body>
+</html>

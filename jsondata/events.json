@@ -1,0 +1,95 @@
+{
+    "events": [
+        {
+            "id": "ev1",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "event_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+            "id": "ev2",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "event_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+            "id": "ev3",
+			"name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+			"event_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+		,
+		{
+            "id": "ev4",
+			"name": "Lorem Ipsum is Simply ",
+			"image": "content_img.png",
+			"event_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+		},
+		{
+            "id": "ev5",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+			"event_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+		},
+		{
+            "id": "ev6",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+			"event_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+    ],
+	
+    "exams": 
+	[
+        {
+            "id": "ex1",
+			"name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "isStartable": "true",
+			"exam_description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+            "id": "ex2",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "isStartable": "true",
+			"exam_description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+            "id": "ex3",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "isStartable": "true",
+			"exam_description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+		,
+		{
+            "id": "ex4",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "isStartable": "true",
+			"exam_description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+		,
+		{
+            "id": "ex5",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "isStartable": "true",
+			"exam_description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+		,
+		{
+            "id": "ex6",
+            "name": "Lorem Ipsum is Simply ",
+            "image": "content_img.png",
+            "isStartable": "true",
+			"exam_description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+		
+		
+		
+	]
+
+
+}

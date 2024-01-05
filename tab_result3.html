@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+ <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+<link href="style.css" rel="stylesheet">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="progress.js"></script> 
+<script src="circle-progress.js"></script>
+
+	
+
+
+</head>
+
+  <body>
+      <header>
+          <div class="container">
+              <div class="row" id="userid">
+                  <div class="col-md-12 logo">
+				  
+				   <input type="hidden" id="user_id" > 	
+				   <input type="hidden" id="eid" > 	
+					 
+                       <a href="index.html"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <section class="main_container">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs nav-pills nav-justified ">
+                            <li><a id="firstresult" role="tab" ><i class="fa fa-question-circle"></i> SORU SOR</a></li>
+                          <li><a id="secondresult"><i class="fa fa-file"></i> TANITIM</a></a></li>
+                          <li class="active"><a id="thirdresult"><i class="fa fa-flag"></i> AKSiYON</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="home">
+                            
+                                      <div class="col-md-10 col-md-offset-1 search_box result_title">
+                                           <h1> <img src="img/badge.png" /> Result List of Third Tab </h1>
+                                      </div><!-- /input-group -->
+                          
+                              
+                              <div class="col-md-10 col-md-offset-1 tab-one-heading big_font choose_ans">
+                                  <div id="content-rds9" class="content">
+                                      
+                                           
+
+	                              </div>
+                              </div>
+                              
+                              <div class="col-md-12 question-container padding_tb_bt2 " style="height:170px;">
+                                    <div class="row">
+									
+										<div class="col-md-6 score_list" id="scores">
+										 <ul class="footer-list time-list-cont ">
+										 <li class="green-box-list" >Users Score</li>
+										 <li class="time" id="userscore" style="position:relative;left:-5px;"> </li>
+										 </ul>
+										 
+										 <ul class="footer-list time-list-cont">
+										 <li class="green-box-list">Max. Score </li>
+										 <li class="time" id="maxscore">00.00</li>
+										 </ul>
+										 </div>
+										
+								<div class="col-md-12 text-center score_text">
+								
+								<div id="circle" style="position:relative;z-index:1;left:450px;top:-160px;width:130px;height:130px;">		
+									<div id="scorediv" style="width:100px;left:20px;height:100px;position:relative;top:-110px;z-index:10;font-size:33pt;" >
+									Score in %</div>
+								</div>
+								
+								</div>
+								
+                                    </div>
+                              </div>
+                              
+							  <div class="row">
+                                  <div class="col-md-12 margin-top-cont padding_tb_bt2 bottom_btn">
+                                      <div class="col-md-6 text-left">
+                                          <a id="pretab" class="btn btn-white">Previous Tab</a>
+                                      </div>
+                                      <div class="col-md-6 text-right">
+                                          <a id="main" class="btn btn-white">Main</a>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+
+
+                          
+                          
+
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- Repmaze Analysis </p>
+                  </div>
+              </div>
+			  
+          </div>
+      </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+   
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script>
+	
+	$(document).ready(function()
+	{
+	var x=location.search;
+	x=unescape(x);
+	x=x.substr(1);
+	var n = x.search("&"); 
+	
+	y=x.substr(0,n);
+	var m = y.search("=");
+	userid=y.substr(m+1);
+	
+	$("#user_id").val(userid);
+
+	if (userid=="")
+	{
+	location.href="index.html";
+	}
+	
+	z=x.substr(n+1);
+	eid= z.substr(4);
+	
+	$("#eid").val(eid);
+
+	
+	$("#userid").append("<h4 style='position:relative;float:right;color:#3acfb8;top:10px;padding-right:100px;'><a href='index.html' style='text-decoration:none;'>Logout</a></h4><h4 style='position:relative;top:10px;float:right;color:#3acfb8;padding-right:50px;'>User Id : "+userid+"</h4>");
+
+
+	$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/result.json", function(data) 
+	{
+		var a =0;
+		var b =1;
+		var c = 0;
+		$("#content-rds9").html("<ul class='all-question-list' style='margin-bottom:25px;padding-left:0px;' >");
+		
+		for (i=0;i<= data.resultstab3.length;i++)
+		{		
+		b = 2 * data.resultstab3.length;
+		$("#content-rds9").append("</div><li style='list-style:none;list-style-type:none;font-weight:400;font-size:14px;letter-spacing:1px;color:#fff;padding:10px 0px;padding-left:50px;border-bottom:1px solid #fff;position:relative;'><span class='box-question' style='background:#fff;color:#3acfb8;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;position:absolute;width:40px;text-align:center;' >Q"+(i+1)+"</span>"+data.resultstab3[i].question_asked+"<ul style='padding-top:10px;padding-bottom:10px;padding-left:0px;'>");
+		
+		if (data.resultstab3[i].correct_choice=="A")
+		{
+		$("#content-rds9").append("<li 	class='active' style='color:red;list-style-type:none;'><span class='box-question' style='background:#fff;color:red;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>A</span>"+data.resultstab3[i].choiceA +"</li>");
+		$("#content-rds9").append("<li  style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>B</span>"+data.resultstab3[i].choiceB +"</li>");
+		$("#content-rds9").append("<li  style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>C</span>"+data.resultstab3[i].choiceC +"</li>");
+		$("#content-rds9").append("<li  style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>D</span>"+data.resultstab3[i].choiceD +"</li></ul>");
+		}
+		
+		if (data.resultstab3[i].correct_choice=="B")
+		{
+		$("#content-rds9").append("<li  style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>A</span>"+data.resultstab3[i].choiceA +"</li>");
+		$("#content-rds9").append("<li class='active' style='color:red;list-style-type:none;'><span class='box-question' style='background:#fff;color:red;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>B</span>"+data.resultstab3[i].choiceB +"</li>");
+		$("#content-rds9").append("<li style='color:white;list-style-type:none;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>C</span>"+data.resultstab3[i].choiceC +"</li>");
+		$("#content-rds9").append("<li style='color:white;list-style-type:none;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>D</span>"+data.resultstab3[i].choiceD +"</li></ul>");
+		}
+		
+		if (data.resultstab3[i].correct_choice=="C")
+		{
+		$("#content-rds9").append("<li class='active' style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>A</span>"+data.resultstab3[i].choiceA +"</li>");
+		$("#content-rds9").append("<li class='active' style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>B</span>"+data.resultstab3[i].choiceB +"</li>");
+		$("#content-rds9").append("<li class='active' style='color:red;list-style-type:none;'><span class='box-question' style='background:#fff;color:red;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>C</span>"+data.resultstab3[i].choiceC +"</li>");
+		$("#content-rds9").append("<li class='active' style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>D</span>"+data.resultstab3[i].choiceD +"</li></ul>");
+		}
+		
+		if (data.resultstab3[i].correct_choice=="D")
+		{
+		$("#content-rds9").append("<li class='active' style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>A</span>"+data.resultstab3[i].choiceA +"</li>");
+		$("#content-rds9").append("<li class='active' style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>B</span>"+data.resultstab3[i].choiceB +"</li>");
+		$("#content-rds9").append("<li class='active' style='list-style-type:none;color:white;'><span class='box-question' style='background:#fff;color:#1BBC9B;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>C</span>"+data.resultstab3[i].choiceC +"</li>");
+		$("#content-rds9").append("<li class='active' style='color:red;list-style-type:none;'><span class='box-question' style='color:red;background:#fff;font-size:20px;font-weight:400;padding:0px 6px;border-radius:4px;margin-right:10px;left:5px;top: 6px;width:40px;text-align:center;'>D</span>"+data.resultstab3[i].choiceD +"</li></ul>");
+		}
+		
+		$("#content-rds9").append("<div class='row' ><div class='col-md-6 choose_result text-left'><h4 style='width:250px;background:#FFF;border-radius:5px;color:#3acfb8!important;padding-left:60px;display:inline-block;'>Correct Choice : <span>"+ data.resultstab3[i].correct_choice +"</span></h4></div>");
+		
+		
+	
+		if ( data.resultstab3[i].questionresult=="correct" )
+		{
+		a = a+2;
+		
+		
+		$.circleProgress.defaults.value =(a/b).toFixed(2);
+		
+		$("#circle").circleProgress({
+			size: 130,
+			thickness :20,
+			fill: {
+            gradient: ["#1BBC9B", "#1BBC9B"]
+        }
+		});
+		
+		$("#scorediv").html(a*100/b +"%");
+		$("#userscore").html(a.toFixed(2));
+		$("#maxscore").html(b.toFixed(2));
+	
+		
+		$("#content-rds9").append("<div class='col-md-6 choose_result text-right' style='position:relative;top:-60px;left:300px;' ><h4> Result : <span class='red'>Correct</span><span>/Wrong</span> </h4>");
+		}
+	
+		if ( data.resultstab3[i].questionresult=="wrong" )
+		{
+			
+		$("#content-rds9").append("<div class='col-md-6 choose_result text-right' style='position:relative;top:-60px;left:300px;'><h4> Result : <span>Correct/</span><span class='red'>Wrong</span> </h4>");
+		}
+		
+		$("#content-rds9").append("</div></div></li>");
+		
+		}
+		$("#content-rds9").append("</ul>");
+		
+	});
+	
+	
+	
+	$("#firstresult").click(function()
+	{
+	location.href="tab_result1.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+	
+	$("#secondresult").click(function()
+	{
+	location.href="tab_result2.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+	
+	$("#thirdresult").click(function()
+	{
+	location.href="tab_result3.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});
+	
+	$("#pretab").click(function()
+	{
+	location.href="tab_result2.html?userid="+$("#user_id").val()+"&eid="+$("#eid").val();
+	});	
+	
+	$("#main").click(function()
+	{
+	
+	$("#main").attr("href", "main.html?user_id="+$("#user_id").val() );
+	});	
+	
+	$("#firstresult").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+	$("#secondresult").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+	$("#thirdresult").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+});
+</script> 
+	
+	<script>
+		(function($){
+			$(window).load(function(){
+				
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+			      $("#content-rds9").mCustomScrollbar({theme:"rounded-dots"});
+				
+				$(".all-themes-switch a").click(function(e){
+					e.preventDefault();
+					var $this=$(this),
+						rel=$this.attr("rel"),
+						el=$(".content");
+					switch(rel){
+						case "toggle-content":
+							el.toggleClass("expanded-content");
+							break;
+					}
+				});
+				
+			});
+		})(jQuery);
+	</script>
+    
+    <script>
+        $('.header').addClass('animated fadeInDown');
+        
+    
+        jQuery("#back_left").click(function() {
+                    $("#content-rds").mCustomScrollbar("scrollTo","top");
+                });
+                
+        jQuery("#back_right").click(function() {
+            $("#content-rds2").mCustomScrollbar("scrollTo","top");
+        });
+
+        
+</script>
+  </body>
+</html>

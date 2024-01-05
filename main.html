@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href="style.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<script>
+	
+	$(document).ready(function()
+	{	
+	
+	
+	var x=location.search;
+	x=unescape(x);
+	x=x.substr(9);
+	userid=x;
+	
+	
+	$("#user_id").val(userid);
+	if (userid=="")
+	{
+	location.href="index.html";
+	}
+	
+	$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/events.json", function(data) 
+	{
+	$("#eventsdiv").html("<h2>DENEYiM</h2><div id='content-rds2' class='content'><div class='row'> ");
+
+	for (i=0;i<=data.events.length;i++)
+	{
+	$("#content-rds2").append("<div class='col-md-12 scroll_content' style='background-color:#3acfb8;'><div class='col-xs-4 no_right_padding'><img  src='http://newsoftwares1.rf.gd/webmodule/img/"+ data.events[i].image +"'></div><div class='col-xs-8 no_padding'><h3 style='font-weight:900;'><a href='phase2.html?userid="+ $("#user_id").val() + "&eventid=" + data.events[i].id + "&time=00:00'>"+data.events[i].id+"</a></h3><p style='line-height:1.5;'>"+data.events[i].event_description + "</p><a href='phase2.html?userid="+ userid +"&eventid=" + data.events[i].id + "&time=00:00' class='read-more' style='float:right;padding-right:10px;'><i class='fa fa-eye'></i> Görünüm </a></div><div class='col-md-12'><hr></div></div></div>");
+	}
+	
+	$("#content-rds2").append("<div class='back_top' > <a href='#' id='back_left'> Geri dön <img src='img/back_top.png'/></a></div>"); 
+	});
+	
+	
+	$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/events.json", function(data) 
+	{
+	$("#examsdiv").html("<h2>SINAV</h2><div id='content-rds3' style='height:700px' class='content'><div class='row'>");
+	
+	for (j=0; j<=data.exams.length; j++)
+	{
+	$("#content-rds3").append("<div class='col-md-12 scroll_content' style='background-color:#3acfb8;color:#fff;'><div class='col-xs-4 no_right_padding'><img  src='http://newsoftwares1.rf.gd/webmodule/img/"+ data.exams[j].image +"'></div><div class='col-xs-8 no_padding'><h3 style='font-weight:900;'><a href='phase2.html?userid="+ $("#user_id").val() + "&examid="+ data.exams[j].id + "&time=00:00'>"+data.exams[j].id+"</a></h3><p style='line-height:1.5;color:#fff;'>"+data.exams[j].exam_description + "</p><a href='phase2.html?userid="+ userid +"&examid=" + data.exams[j].id + "&time=00:00' class='read-more' style='float:right;padding-right:10px;' ><i class='fa fa-eye'></i> Görünüm </a></div><div class='col-md-12'><hr></div></div></div></div>");
+	}
+	
+	$("#content-rds3").append("<div class='back_top'> <a href='#' id='back_left'> Geri dön <img src='img/back_top.png'/></a></div></div></div>"); 
+	
+	});
+	$("#userid").append("<h4 style='position:relative;float:right;color:#3acfb8;top:10px;padding-right:100px;'><a href='index.html' style='text-decoration:none;'>Logout</a></h4><h4 style='position:relative;top:10px;float:right;color:#3acfb8;padding-right:50px;'>User Id : "+x+"</h4>");
+	
+	});
+	
+	
+	
+	
+	
+	
+	
+	</script>
+
+
+	</head>
+
+  <body>
+      <header>
+          <div class="container">
+              <div class="row" id="userid">
+                  <div class="col-md-12 logo" >
+				  
+					  <input type="hidden" id="user_id" > 	
+                  
+					<a href="index.html"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <section class="main_container">
+          <div class="container">
+		  
+              <div class="row">
+                  <div class="col-md-6 scroll_container" id="eventsdiv">
+                  
+				  
+				  
+				  </div>
+				
+				
+					<div class="col-md-6 scroll_container" id="examsdiv">
+                      
+					  
+					  
+					</div>
+					
+          		  </div> 
+				</div>		
+					  
+                  
+				<div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- webmodule Analysis </p>
+                  </div>
+              </div>
+        
+      </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+   
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	<script>
+		(function($){
+			$(window).load(function(){
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+				$("#content-rds").mCustomScrollbar({theme:"rounded-dots"});
+                
+				$("#content-rds2").mCustomScrollbar({theme:"rounded-dots"});
+			    $("#content-rds3").mCustomScrollbar({theme:"rounded-dots"});
+				
+								
+				$(".all-themes-switch a").click(function(e){
+					e.preventDefault();
+					var $this=$(this),
+						rel=$this.attr("rel"),
+						el=$(".content");
+					switch(rel){
+						case "toggle-content":
+							el.toggleClass("expanded-content");
+							break;
+					}
+				});
+				
+			});
+		})(jQuery);
+	</script>
+    
+    <script>
+        $('.header').addClass('animated fadeInDown');
+        
+		jQuery("#back_left").click(function() {
+                    $("#content-rds").mCustomScrollbar("scrollTo","top");
+                });
+                
+        jQuery("#back_right").click(function() {
+            $("#content-rds2").mCustomScrollbar("scrollTo","top");
+        });
+
+        
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,129 @@
+{
+
+	"questions": 
+
+ [
+			
+			{
+				"questionno":"Q1",
+				"question":"Is Washington capital of USA ?",
+				"answer":"yes",
+				"question_image":"question_image1.jpg",
+				"question_score":2
+			},
+			
+			{
+				"questionno":"Q2",
+				"question":"question no 2",
+				"answer":"answer no 2",
+				"question_image":"question_image2.jpg",
+				"question_score":2
+			},
+			
+			{
+				"questionno":"Q3",
+				"question":"question no 3",
+				"answer":"answer no 3",
+				"question_image":"question_image3.jpg",
+				"question_score":2
+			
+			},
+			
+			{
+				"questionno":"Q4",
+				"question":"question no 4",
+				"answer":"answer no 4",
+				"question_image":"question_image4.jpg",
+				"question_score":2
+			
+			},
+			
+			{
+				"questionno":"Q5",
+				"question":"question no 5",
+				"answer":"answer no 5",
+				"question_image":"question_image5.jpg",
+				"question_score":2
+			
+			},
+			
+			{
+				"questionno":"Q6",
+				"question":"question no 6",
+				"answer":"answer no 6",
+				"question_image":"question_image6.jpg",
+				"question_score":2
+			
+			},
+			
+			{
+				"questionno":"Q7",
+				"question":"question no 7",
+				"answer":"answer no 7",
+				"question_image":"question_image7.jpg",
+				"question_score":2
+			
+
+			},
+			
+			{
+				"questionno":"Q8",
+				"question":"question no 8",
+				"answer":"answer no 8",
+				"question_image":"question_image8.jpg",
+				"question_score":2
+			
+
+			},
+			
+			{
+				"questionno":"Q9",
+				"question":"question no 9",
+				"answer":"answer no 9",
+				"question_image":"question_image9.jpg",
+				"question_score":2
+			
+			},
+			
+			{
+				"questionno":"Q10",
+				"question":"question no 10",
+				"answer":"answer no 10",
+				"question_image":"question_image10.jpg",
+				"question_score":2
+
+			}
+				],
+				
+	"questions3": 
+
+			[
+			
+			{
+				"questionno":"Q1",
+				"question":"Which of following is Capital of USA",
+				"ChoiceA":"Washington",
+				"ChoiceB":"Canberra",
+				"ChoiceC":"London",
+				"ChoiceD":"SomeCity",
+				"question_image":"question_image1.jpg",
+				"question_score":2
+			},
+
+			{
+				"questionno":"Q2",
+				"question":"Which of following is not an Animal",
+				"ChoiceA":"Tiger",
+				"ChoiceB":"Lion",
+				"ChoiceC":"Dog",
+				"ChoiceD":"Fish",
+				"question_image":"question_image2.jpg",
+				"question_score":2
+			}
+
+			
+			
+			
+			]
+
+}

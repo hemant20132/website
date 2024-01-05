@@ -1,0 +1,37 @@
+{
+"chatquestions":
+	[
+	
+	{
+	"question":"What is time now ?",
+	"understood":"true",
+	"understoodQuestion":"question/null",
+	"answer":"India 7:20P.M.",
+	"alternative":["What is time in Turkey now ?","What is time in USA now ?","What is time in UK now ?"],
+	"altanswers":["4:20P.M.","8:00A.M.","2:00P.M."],
+	"score":"2"
+	},
+	
+	{
+	"question":"What date is christmas celebrated ?",
+	"understood":"true",
+	"understoodQuestion":"question/null",
+	"answer":"25th December",
+	"alternative":["What date is year end?","What date is year begins","What date is bank account closing?"],
+	"altanswers":["31st December","1st January ","31st March"],
+	"score":"2"
+	},
+	
+	{
+	"question":"Where is munich located ?",
+	"understood":"true",
+	"understoodQuestion":"question/null",
+	"answer":"Germany",
+	"alternative":["Where is amsterdam located ? ","Where is hongkong located ?","Where is London located? "],
+	"altanswers":["Netherlands","Asia","UK"],
+	"score":"2"
+	}
+	
+	]
+	
+}

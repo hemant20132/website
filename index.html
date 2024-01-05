@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+    <link href="style.css" rel="stylesheet">
+	
+	<script>
+	$(document).ready(function()
+	{
+	$("#submitbutton").click(function()
+	{
+	
+	if (($("#username").val() != "") && ($("#userpassword").val() != "") )
+	{
+	$.getJSON("http://newsoftwares1.rf.gd/website/jsondata/users.json",{user_id:$("#username").val(),password:$("#userpassword").val()}, function(data) 
+	{
+
+	for (i=0; i<data.users.length; i++)
+	{
+	if (data.users[i].user_id==$("#username").val() && data.users[i].password==$("#userpassword").val())
+	{
+	location.href="main.html?user_id="+data.users[i].user_id;
+	return false;
+	}
+	}
+	
+	alert("wrong user name or password!!!!");
+	
+	});
+
+	}
+		
+	
+		
+		
+		
+	});
+	});
+	</script>
+	
+	
+	
+  </head>
+
+  <body>
+      <header>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 logo">
+                      <a href="#"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <section class="main_container signin">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 green-bg padding_tp_bt_large">
+                      <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                          <div class="col-md-5 welcome_box">
+                              <h1> Welcome to Lorem Ipsum </h1>
+                              
+                              <h3> Lorem. Simply. Brilliant </h3>
+                              <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.  </p>
+                              
+                              <a href="#"> Get to know us more here <i class="fa  fa-arrow-circle-right"></i> </a>
+                          </div>
+                          <div class="col-md-5 col-md-offset-1 sign_in">
+                              <h2> <i class="fa fa-lock"></i>  Giriş </h2>
+                              
+                              <form action="#" class="form-horizontal" role="form">
+                                  <div class="input-group">
+                                      <span class="input-group-addon"> <i class="fa fa-user"></i> </span>
+                                      <input type="text" id="username" class="form-control text_box" placeholder="wifiwifi" required>
+                                  </div>
+                                  <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key"></i> </span>
+                                    <input type="password" id="userpassword" class="form-control text_box" placeholder="wifiwifi" required="password">
+                                  </div>
+                              
+                                  <div class="col-sm-12 text-center">
+                                    <button type="submit" id="submitbutton" class="btn btn-default btn-white">Gir</button>
+                                  </div>
+                                  <div class="col-sm-6 text-left">
+                                      <a href="#">şifremi Unuttum </a>
+                                  </div>
+                                  <div class="col-sm-6 text-right">
+                                      <a href="#">Hesabim Yok </a>
+                                  </div>
+                              </form>
+                              
+                                </div>
+                             </div>
+                          
+                        </div>
+                     </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- Webmodule Analysis </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../js/minified/jquery-1.11.0.min.js"><\/script>')</script>
+	
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	<script>
+		(function($){
+			$(window).load(function(){
+				
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+				$.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+				
+				
+				
+				$("#content-rds").mCustomScrollbar({theme:"rounded-dots"});
+                 $("#content-rds2").mCustomScrollbar({theme:"rounded-dots"});
+				
+				
+				
+				$(".all-themes-switch a").click(function(e){
+					e.preventDefault();
+					var $this=$(this),
+						rel=$this.attr("rel"),
+						el=$(".content");
+					switch(rel){
+						case "toggle-content":
+							el.toggleClass("expanded-content");
+							break;
+					}
+				});
+				
+			});
+		})(jQuery);
+	</script>
+    
+    <script>
+        $('.header').addClass('animated fadeInDown');
+        
+    
+        jQuery("#back_left").click(function() {
+                    $("#content-rds").mCustomScrollbar("scrollTo","top");
+                });
+                
+        jQuery("#back_right").click(function() {
+            $("#content-rds2").mCustomScrollbar("scrollTo","top");
+        });
+
+        
+</script>
+  </body>
+</html>

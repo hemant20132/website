@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<title></title>
+
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="style.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  
+  </head>
+
+  <body>
+      <header>
+          <div class="container">
+              <div class="row" id="userid">
+                  <div class="col-md-12 logo">
+
+				  <input type="hidden" id="user_id" > 	
+				  <input type="hidden" id="eid" > 	
+				  
+
+				  <a href="index.html"><img src="img/logo.png" class="img-responsive"> </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <section class="main_container">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs nav-pills nav-justified ">
+                          <li class="active"><a id="firsttab" role="tab"><i class="fa fa-question-circle"></i> SORU SOR</a></li>
+                          <li><a id="secondtab"><i class="fa fa-file"></i> TANITIM</a></a></li>
+                          <li><a id="thirdtab"><i class="fa fa-flag"></i> AKSiYON</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="home">
+                             
+                                  <div class="col-md-10 col-md-offset-1 search_box">
+                                      <div class="input-group">
+                                          <input type="text" class="form-control text_box" id="questionbox" placeholder="SORU SOR" >
+                                          <span class="input-group-btn">
+                                              <button class="btn btn-default btn-green"  id="SORbutton" type="button">SOR</button>
+   
+										   </span>
+                                      </div><!-- /input-group -->
+                                  </div>
+                            
+                              <div class="row">
+                                  <div class="col-md-10 col-md-offset-1">
+                                     <div class="col-md-4 circle-image" style="background-image:url(img/women.png);"> 
+                                      </div> 
+                                      <div class="col-md-8 right-image-cont">
+                                          <div class="white-right-container">
+                                              <div class="row">
+                                                  <div class="col-md-9" id="questiondiv" >
+                                                        <ul class="question-list">
+                                                            <li><p><span class="bold-cont"> </span></p></li>
+                                                            <li><p><span class="bold-cont"> </span></p></li>
+                                                        </ul>
+                                                  </div>
+                                                  <div class="col-md-3">
+                                                      <a href="#" class="btn btn-default btn-green" id="incorrectbutton"><i class="fa fa-info-circle"></i>  Yanlış</a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+
+                              <div class="col-md-12 question-container ">
+                                  
+                                  <div id="content-rds3" class="content">
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="col-md-10 col-md-offset-1 border-question-cont quest" id="recordquestiondiv">
+                                        
+
+
+
+
+										</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+
+                              <div class="row">
+                                  <div class="col-md-12 margin-top-cont bottom_btn">
+                                      <div class="col-md-6 ">
+                                          <ul class="footer-list">
+                                              <li class="time-name">Zamanlayıcı </li>
+                                              <li class="time" id="timer">00:00</li>
+                                          </ul>
+                                      </div>
+                                      <div class="col-md-6 text-right">
+                                          <a id="showresult" class="btn btn-white">Sonlandir</a>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+
+
+                          
+                          
+
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 footer">
+                      <p> @Copyright 2014- Webmodule Analysis </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script>
+$(document).ready(function()
+{
+	
+	
+	var x=location.search;
+	x=unescape(x);
+	x=x.substr(1);
+	var n = x.search("&"); 
+	
+	y=x.substr(0,n);
+	var m = y.search("=");
+	userid=y.substr(m+1);
+	
+	$("#user_id").val(userid);
+	if (userid=="")
+	{
+	location.href="index.html";
+	}
+	
+	str="userid="+userid;	
+	len=str.length;
+	
+	str1=x.slice(len+1);
+	
+	var q = str1.search("&");
+	z=str1.substr(0,q);
+	var r = z.search("=");
+	eid=z.substr(r+1);
+	
+	$("#eid").val(eid);
+	
+	
+	
+	if (eid.substr(0,2)=="ex")
+		{
+		
+		str2="eid="+eid;
+		len1= str2.length
+		str3= str1.slice(len1+1);
+		var s = str3.search("=");
+		time=str3.substr(s+1);
+		var t = time.search(":");
+		var min=parseInt(time.substr(0,t));
+		var sec=parseInt(time.substr(t+1));
+		
+			var timer=setInterval(function ()
+			{
+			
+			if (sec<10) 
+			{
+			$("#timer").html("0"+min+":0"+sec);
+			}
+
+			if (sec>=10) 
+			{
+			$("#timer").html("0"+min+":"+sec);
+			}
+
+			if ($("#timer").html()== "0100:00")
+			{
+			clearInterval(timer);
+			location.href="tab_result3.html?userid="+ $("#user_id").val() +"&eid=" + $("#eid").val() ;
+			}
+			sec=sec+1;
+			if (sec==59)
+			{
+			min=min+1;
+			sec=00;
+			}
+			}, 1000);
+
+		}
+		
+	
+$("#userid").append("<h4 style='position:relative;float:right;color:#3acfb8;top:10px;padding-right:100px;'><a href='index.html' style='text-decoration:none;'>Logout</a></h4><h4 style='position:relative;top:10px;float:right;color:#3acfb8;padding-right:50px;'>User Id : "+userid+"</h4>");
+$("#questiondiv").html("");
+$("#incorrectbutton").hide();
+
+var clicksor=0;
+var recquest=[];
+var recans=[];
+var incp=[];
+var j=0;
+var click=0;	
+
+$("#SORbutton").click(function()
+{
+	
+	var que1 = $("#questionbox").val();
+
+		
+		for (k=0; k<=incp.length; k++)
+			{
+				if (que1==incp[k])
+				{
+					alert ("Question already asked !!!");
+					return false;
+				}
+			}
+	
+	
+	
+	if ( $("#questionbox").val()=="" )
+	{
+	$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'></span>Type a question in above box ....</p></li></ul>");
+	}
+	
+		
+	$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/test.json", function(data) 
+	{
+	
+	for (i=0;i<data.chatquestions.length;i++)
+	{
+			
+		if (data.chatquestions[i].question==que1)
+		{
+
+			
+			$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'>Q:"+data.chatquestions[i].question+"</span></p></li><li><p><span class='bold-cont'>A:"+data.chatquestions[i].answer+"</span></p></li></ul>");
+			$("#questiondiv").append("</ul>");
+			$("#incorrectbutton").show();
+			var rectext=$("#questiondiv").text();
+			var f1=rectext.search("A");
+			recquest1=rectext.substr(2,f1-2);
+				
+			
+			recquest.push(recquest1);
+			recans.push(rectext.substr(f1+2));	
+			
+			if ( $("#recordquestiondiv").find("p:eq(0)").text() !="" )
+			{
+			recordtext=$("#recordquestiondiv").find("p:eq(0)").text();
+			pos=recordtext.search("-");
+			recordtext1=recordtext.substr(pos+1);
+			}
+			
+
+					if (j>1)
+					{
+					if (recquest[j-2]==recordtext1)
+					{
+					return false;
+					}
+					
+					newcontent=$("#recordquestiondiv").html();
+					$("#recordquestiondiv").html("<ul><li> <p><span class='bold-cont'>Question "+(j-1)+"</span> -"+recquest[j-2]+"</p></li><li> <p><span class='bold-cont'>Answer"+(j-1)+"</span>-"+ recans[j-2] +"</p> </li><ul>"+newcontent);
+					return false;
+					
+					
+					}
+					
+					if (j==1)
+					{
+					newcontent=$("#recordquestiondiv").html();
+					$("#recordquestiondiv").html(newcontent);
+					return false;
+					}
+	
+					if (j<1)
+					{
+					newcontent=$("#recordquestiondiv").html();
+					$("#recordquestiondiv").html("<ul><li> <p><span class='bold-cont'>Question "+(j+1)+"</span> -"+data.chatquestions[i].question+"</p></li><li> <p><span class='bold-cont'>Answer"+(j+1)+"</span>-"+ data.chatquestions[i].answer +"</p> </li><ul>"+newcontent);
+					return false;
+					}
+		}
+	}
+	j=j-1;
+	clicksor=clicksor-1;
+	$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'></span>question not found ....</p></li></ul>");
+	});
+		j=j+1;
+		clicksor=clicksor+1;
+});		
+
+
+
+$("#incorrectbutton").click(function()
+	{
+	if ( click >=3  )
+			{
+			return false;
+			}
+	var que2= $("#questionbox").val();
+		for (k=0;k<incp.length;k++)
+		{
+		if (incp[k]==que2)
+			{
+				return false;
+			}
+		}
+	
+		$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/test.json", function(data) 
+		{
+				
+		for (i=0;i<=data.chatquestions.length;i++)
+		{
+			
+			
+			if (data.chatquestions[i].question == que2 )
+			{
+			$("#questiondiv").html("<h3 style='color:red;'>Did you mean it ?</h3><ul class='question-list'><li><p><span class='bold-cont'>Q1:</span>"+data.chatquestions[i].alternative[0]+"</p></li><li><p><span class='bold-cont'>Q2:</span>"+ data.chatquestions[i].alternative[1] +"</p></li><li><p><span class='bold-cont'>Q3:</span>"+data.chatquestions[i].alternative[2]+"</p></li></ul>");
+			return false;
+			}
+			
+		}
+		});
+		$("#incorrectbutton").hide();	
+	
+	});
+	
+	
+	$("#questiondiv").find("li p").live("click", function()
+	{
+	
+	var selque = $(this).text();
+	selque=selque.substr(3);
+	
+	
+	$.getJSON("http://newsoftwares1.rf.gd/webmodule/jsondata/test.json", function(data) 
+		{
+			
+			
+		for (i=0;i<=data.chatquestions.length;i++)
+		{
+		
+			if (data.chatquestions[i].alternative[0]==selque)
+				{
+				incp.push(data.chatquestions[i].question);
+			
+				$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'>Q:"+data.chatquestions[i].alternative[0]+"</span></p></li><li><p><span class='bold-cont'>A:"+data.chatquestions[i].altanswers[0] +"</span></p></li></ul>");
+				var rectext=$("#questiondiv").text();
+				var f1=rectext.search("A");
+				recquest1=rectext.substr(2,f1-2);
+				recquest.pop(); 		
+				recans.pop();
+				recquest.push(recquest1);
+				recans.push(rectext.substr(f1+2));	
+			
+				newcontent=$("#recordquestiondiv").html();
+				$("#recordquestiondiv").html("<ul><li> <p><span class='bold-cont'>Question "+(j)+"</span> -"+recquest[j-1]+"</p></li><li> <p><span class='bold-cont'>Answer"+(j)+"</span>-"+ recans[j-1] +"</p> </li><ul>"+newcontent);
+				return false;
+				
+				}
+				
+				if (data.chatquestions[i].alternative[1]==selque)
+				{
+				incp.push(data.chatquestions[i].question);
+
+				$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'>Q:"+data.chatquestions[i].alternative[1]+"</span></p></li><li><p><span class='bold-cont'>A:"+data.chatquestions[i].altanswers[1] +"</span></p></li></ul>");
+				var rectext=$("#questiondiv").text();
+				var f1=rectext.search("A");
+				recquest1=rectext.substr(2,f1-2);
+				recquest.pop(); 		
+				recans.pop();
+				recquest.push(recquest1);
+				recans.push(rectext.substr(f1+2));	
+		
+				newcontent=$("#recordquestiondiv").html();
+				$("#recordquestiondiv").html("<ul><li> <p><span class='bold-cont'>Question "+(j)+"</span> -"+recquest[j-1]+"</p></li><li> <p><span class='bold-cont'>Answer"+(j)+"</span>-"+ recans[j-1] +"</p> </li><ul>"+newcontent);						
+				return false;
+				}
+				
+				if (data.chatquestions[i].alternative[2]==selque)
+				{
+				incp.push(data.chatquestions[i].question);
+				$("#questiondiv").html("<ul class='question-list'><li><p><span class='bold-cont'>Q:"+data.chatquestions[i].alternative[2]+"</span></p></li><li><p><span class='bold-cont'>A:"+data.chatquestions[i].altanswers[2] +"</span></p></li></ul>");
+				var rectext=$("#questiondiv").text();
+				var f1=rectext.search("A");
+				recquest1=rectext.substr(2,f1-2);
+				recquest.pop(); 		
+				recans.pop();
+				recquest.push(recquest1);
+				recans.push(rectext.substr(f1+2));	
+		
+				newcontent=$("#recordquestiondiv").html();
+				$("#recordquestiondiv").html("<ul><li> <p><span class='bold-cont'>Question "+(j)+"</span> -"+recquest[j-1]+"</p></li><li> <p><span class='bold-cont'>Answer"+(j)+"</span>-"+ recans[j-1] +"</p> </li><ul>"+newcontent);
+				return false;
+				}
+		
+		}
+		
+		});
+		
+		click=click+1;
+		
+	
+	});
+	
+	
+	$("#questiondiv").find("li p").live("mouseover", function()
+	{
+		$(this).css("color","red");
+		$(this).css("cursor","pointer");
+
+		});
+	
+	$("#questiondiv").find("li p").live("mouseout", function()
+	{
+		$(this).css("color","");
+	});
+	
+		
+	
+	
+	$("#thirdtab").click(function()
+	{
+	location.href="phase2-2.html?userid="+ $("#user_id").val() +"&eid="+ $("#eid").val() +"&time="+$("#timer").html(); 
+	});
+	
+	$("#firsttab").click(function()
+	{
+	location.href="phase2.html?userid=" + $("#user_id").val() + "&eid="+ $("#eid").val() +"&time="+$("#timer").html();
+	});
+
+	$("#secondtab").click(function()
+	{
+		location.href= "phase2-1.html?userid="+ $("#user_id").val() +"&eid="+  $("#eid").val() +"&time="+$("#timer").html();
+	});
+
+
+	$("#showresult").click(function()
+	{
+	location.href="tab_result1.html?userid="+ $("#user_id").val() +"&eid="+ $("#eid").val() ;
+	});
+
+	$("#firsttab").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+	$("#secondtab").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+	$("#thirdtab").mouseover(function()
+	{
+		$(this).css("cursor","pointer");
+	});
+	
+	
+});
+</script>
+	
+	<script>
+		(function($){
+			$(window).load(function(){
+				$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+				                $("#content-rds3").mCustomScrollbar({theme:"rounded-dots"});
+                                $("#content-rds4").mCustomScrollbar({theme:"rounded-dots"});
+				
+				
+				
+				$(".all-themes-switch a").click(function(e){
+					e.preventDefault();
+					var $this=$(this),
+						rel=$this.attr("rel"),
+						el=$(".content");
+					switch(rel){
+						case "toggle-content":
+							el.toggleClass("expanded-content");
+							break;
+					}
+				});
+				
+			});
+		})(jQuery);
+	</script>
+    
+    <script>
+        $('.header').addClass('animated fadeInDown');
+        
+    
+        jQuery("#back_left").click(function() {
+                    $("#content-rds").mCustomScrollbar("scrollTo","top");
+                });
+                
+        jQuery("#back_right").click(function() {
+            $("#content-rds2").mCustomScrollbar("scrollTo","top");
+        });
+
+        
+</script>
+  </body>
+</html>
